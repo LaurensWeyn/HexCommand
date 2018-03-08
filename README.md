@@ -1,11 +1,13 @@
-#HexCommand
+# HexCommand
+
 HexCommand is a low level hexadecimal based communication protocol, designed for both simple hardcoded implementations on embedded systems and more complex, general purpose implementations such as this Java library.
 
 HexCommand can be used for microcontroller to microcontroller communication, microcontroller to PC communication, or PC to PC communication over any medium (Ethernet, RS-232...)
 
 This particular implementation was written as part of a University assignment, but the protocol is designed to be as generic as possible.
 
-##Protocol outline
+## Protocol outline
+
 HexCommand communicates entirely with alphanumeric characters (and the newline character),
 meaning any protocol that allows sending/recieving 8 or 7 bit ASCII characters can be used for HexCommand.
 
@@ -31,7 +33,8 @@ What type these values have depend on the protocol.
 Types can be bytes, ints, UTF-8 Strings, doubles, or any user type.
 The transmitting and recieving side would both agree on the types stored in each channel, and what each channel represents.
 
-##Protocol notes
+## Protocol notes
+
 This protocol is designed to be very general, and some of the details are up to a specific usage of the protocol to decide.
 
 - The order of channels either can or cannot matter. For embedded system implementations with low memory, implementations may typically expect channels to be sent in a predefined order.
