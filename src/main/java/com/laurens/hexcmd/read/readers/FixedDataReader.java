@@ -102,6 +102,10 @@ public class FixedDataReader extends BasicDataReader implements HexReader
     @Override
     public void endConnection(boolean success)
     {
+        for(PacketListener listener:listeners)
+        {
+            listener.onDisconnect(success);
+        }
         listeners = null;
     }
 }

@@ -18,4 +18,11 @@ public interface PacketListener
      * @param reader the DataReader from which partial packet data can be retrieved
      */
     void onFailure(DataReader reader);
+
+    /**
+     * Called when the client sending packets has disconnected.
+     * No further calls will be made to the interface after this method has been called.
+     * @param graceful true if the client had disconnected after a complete packet, false if the connection was lost mid-packet.
+     */
+    void onDisconnect(boolean graceful);
 }
