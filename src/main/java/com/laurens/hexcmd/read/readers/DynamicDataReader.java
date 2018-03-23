@@ -7,7 +7,6 @@ import com.laurens.hexcmd.read.PacketListener;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * A data reader with fixed size buffers for each command channel.
@@ -87,6 +86,10 @@ public class DynamicDataReader extends BasicDataReader implements HexReader
     @Override
     public void endConnection(boolean success)
     {
+        for(PacketListener listener:listeners)
+        {
+            listener.onDisconnect(success);
+        }
         listeners = null;
     }
 }

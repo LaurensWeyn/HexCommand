@@ -164,9 +164,14 @@ public class HexCmdReceiver implements Runnable
                 readByte();
             }catch (IOException err)
             {
-                err.printStackTrace();
                 if(!continueOnError)
+                {
+                    if(state == ReceiveState.noPacket)
+                        hexReader.endConnection(true);
+                    else
+                        hexReader.endConnection(false);
                     state = ReceiveState.dead;
+                }
             }
         }
     }
