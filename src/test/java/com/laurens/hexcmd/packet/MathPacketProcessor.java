@@ -8,11 +8,13 @@ import com.laurens.hexcmd.read.DataReader;
 import com.laurens.hexcmd.read.HexCmdReceiver;
 import com.laurens.hexcmd.read.HexReader;
 import com.laurens.hexcmd.read.PacketListener;
-import com.laurens.hexcmd.read.readers.DynamicDataReader;
 import com.laurens.hexcmd.read.readers.FixedDataReader;
 import com.laurens.hexcmd.write.DataWriter;
 import com.laurens.hexcmd.write.HexCmdTransmitter;
 
+/**
+ * Implementation of a simple test packet standard used in MathPacketTest
+ */
 public class MathPacketProcessor implements PacketListener
 {
     private DataWriter writer;

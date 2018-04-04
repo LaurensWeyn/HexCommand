@@ -1,10 +1,9 @@
 package com.laurens.hexcmd.read;
 
-import com.laurens.hexcmd.HexCmdException;
-
-import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
+import com.laurens.hexcmd.HexCmdException;
 
 /**
  * Low level HexCommand parser. Takes in bytes and passes them to a HexReader implementation for processing.
@@ -21,16 +20,12 @@ public class HexCmdReceiver implements Runnable
     public HexCmdReceiver(InputStream inputStream, HexReader hexReader)
     {
         this.hexReader = hexReader;
-
-        if(!(inputStream instanceof BufferedInputStream))
-            this.inputStream = new BufferedInputStream(inputStream);
-        else
-            this.inputStream = inputStream;
+        this.inputStream = inputStream;
 
         state = ReceiveState.noPacket;
     }
 
-    void readByte() throws IOException, HexCmdException
+    public void readByte() throws IOException
     {
         if(state == ReceiveState.dead)
             return;

@@ -26,17 +26,9 @@ public class MathPacketTest
     private static MathPacketProcessor mpp;
 
     private static int processDelay = 100;
-    private static boolean processRemote = false;
 
     @BeforeClass
     public static void initConnection()throws IOException
-    {
-        if(processRemote)
-            throw new IllegalStateException("Not implemented yet");
-        else
-            initLocal();
-    }
-    private static void initLocal()throws IOException
     {
         //simulated connections
         PipedOutputStream osIn = new PipedOutputStream();
