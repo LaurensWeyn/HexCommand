@@ -32,12 +32,14 @@ public class DataTransferTest
         transmitter.sendDouble('D', 123.4567);
         transmitter.sendFloat('E', 12.3f);
         transmitter.sendString('F', "Hello, World! こんにちは、世界！");
+        transmitter.sendShort('G', (short)1234);
 
         transmitter.endPacket();//transmit
         os.close();//end the simulated connection so receiver will terminate
         receiver.run();//receive
 
         //confirm data (in reverse order, to test independent codes)
+        Assert.assertEquals((short)1234, reader.getShort('G'));
         Assert.assertEquals("Hello, World! こんにちは、世界！", reader.getString('F'));
         Assert.assertEquals(12.3f, reader.getFloat('E'), 0);
         Assert.assertEquals(123.4567, reader.getDouble('D'), 0);

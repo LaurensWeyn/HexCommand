@@ -40,10 +40,9 @@ public class HexCmdTransmitter extends BasicDataWriter
     {
         if(!inChunk)
             throw new HexCmdException("Not in chunk transmission mode");
+
         for(byte b:data)
-        {
             sendHex(b);
-        }
     }
     public void startChunk(char code)throws IOException
     {
@@ -54,6 +53,7 @@ public class HexCmdTransmitter extends BasicDataWriter
         inPacket = true;
         outputStream.write((int)code);
     }
+
     private void sendHex(byte b)throws IOException
     {
         outputStream.write(nibbleToChar((b & 0b11110000) >> 4));

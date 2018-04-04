@@ -19,6 +19,12 @@ public abstract class BasicDataWriter implements DataWriter
     }
 
     @Override
+    public void sendShort(char code, short data) throws IOException
+    {
+        sendBytes(code, ByteBuffer.wrap(new byte[2]).putShort(data).array());
+    }
+
+    @Override
     public void sendLong(char code, long data) throws IOException
     {
         sendBytes(code, ByteBuffer.wrap(new byte[8]).putLong(data).array());

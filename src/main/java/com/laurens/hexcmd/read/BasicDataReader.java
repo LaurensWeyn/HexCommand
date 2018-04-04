@@ -83,4 +83,22 @@ public abstract class BasicDataReader implements DataReader
 
         return ByteBuffer.wrap(bytes).getFloat();
     }
+
+    @Override
+    public short getShort(char code)
+    {
+        byte[] bytes = getBytes(code);
+        if(bytes == null)
+            throw new PacketDataException("Null data for code " + code);
+        if(bytes.length != 2)
+            throw new PacketDataException("Incorrect data length for code " + code +": expected 2 byte(s), found " + bytes.length);
+
+        return ByteBuffer.wrap(bytes).getShort();
+    }
+
+    @Override
+    public boolean hasValue(char code)
+    {
+        return getBytes(code) != null;
+    }
 }

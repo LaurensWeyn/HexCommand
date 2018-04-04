@@ -13,6 +13,8 @@ public interface DataReader
 
     int getInt(char code)throws PacketDataException;
 
+    short getShort(char code)throws PacketDataException;
+
     long getLong(char code)throws PacketDataException;
 
     String getString(char code)throws PacketDataException;
@@ -20,4 +22,6 @@ public interface DataReader
     double getDouble(char code)throws PacketDataException;
 
     float getFloat(char code)throws PacketDataException;
+
+    boolean hasValue(char code);
 }
