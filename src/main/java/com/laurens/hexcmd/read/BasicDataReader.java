@@ -99,6 +99,6 @@ public abstract class BasicDataReader implements DataReader
     @Override
     public boolean hasValue(char code)
     {
-        return getBytes(code) != null;
+        return getBytes(code) != null && getBytes(code).length > 0;
     }
 }
